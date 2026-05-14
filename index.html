@@ -259,10 +259,9 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
   <h2 class="sec-h">Infrastructure &amp; <em>Database</em> Engineer</h2>
   <p class="sec-sub">MCA final year student at Lingaya's Vidyapeeth with internship experience at RailTel Corporation of India Ltd. I designed and built GoGetter's complete production infrastructure — a cloud-native queue platform with full DC-DR mirrored topology across two AWS regions.</p>
   <div class="about-row">
+    <div class="acard"><div class="av">DBA Trainee</div><div class="al">Railtel Corp. pvt. ltd, Gurgaon<br>Govt. of India Mini-Ratna PSU</div></div>
     <div class="acard"><div class="av">MCA</div><div class="al">Lingaya's Vidyapeeth, Faridabad<br>Specialization in DBMS</div></div>
     <div class="acard"><div class="av">BCA</div><div class="al">BBAU, Muzaffarpur<br>Aggregate: 78%</div></div>
-    <div class="acard"><div class="av">RailTel</div><div class="al">DBA Intern<br>Govt. of India Mini-Ratna PSU</div></div>
-    <div class="acard"><div class="av">AWS</div><div class="al">ap-south-1 Mumbai (DC)<br>ap-southeast-1 Singapore (DR)</div></div>
   </div>
   <div class="terminal">
     <div class="tbar">
@@ -270,18 +269,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
       <div class="tdot" style="background:#febc2e;"></div>
       <div class="tdot" style="background:#28c840;"></div>
       <span class="tbar-label">postgres@primary-db — ap-south-1 (DC Region)</span>
-    </div>
-    <div class="tbody">
-      <div><span class="tp">postgres=#</span> <span class="tc">SELECT * FROM pg_stat_replication;</span></div>
-      <div><span class="to">-- replica: ap-south-1 · async · streaming active</span></div>
-      <div><span class="to">-- dr-standby: ap-southeast-1 · slot: dr_slot · synced</span></div>
-      <div>&nbsp;</div>
-      <div><span class="tp">$</span> <span class="tc">pg_basebackup -h PRIMARY_IP -U replicator -Ft -z -P</span></div>
-      <div><span class="tg">-- backup_20250511_020001/ ✓ SUCCESS</span></div>
-      <div>&nbsp;</div>
-      <div><span class="tp">$</span> <span class="tc">./promote_dr.sh</span></div>
-      <div><span class="th">-- Promoting DR Standby → Primary...</span></div>
-      <div><span class="tg">-- pg_is_in_recovery() → f ✓ Now acting as Primary</span> <span class="tcur"></span></div>
     </div>
   </div>
 </section>
