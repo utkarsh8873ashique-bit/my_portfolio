@@ -268,26 +268,12 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.2r
     <div class="acard"><div class="av">DBA Trainee</div><div class="al">RailTel Corp. Pvt. Ltd, Gurgaon<br>Govt. of India</div></div>
     <div class="acard"><div class="av">MCA</div><div class="al">Lingaya's Vidyapeeth, Faridabad<br>Specialization in DBMS</div></div>
     <div class="acard"><div class="av">BCA</div><div class="al">BBAU, Muzaffarpur<br>Aggregate: 78%</div></div>
-    <div class="acard"><div class="av">AWS</div><div class="al">ap-south-1 Mumbai (DC)<br>ap-southeast-1 Singapore (DR)</div></div>
   </div>
   <div class="terminal">
     <div class="tbar">
       <div class="tdot" style="background:#ff5f57;"></div>
       <div class="tdot" style="background:#febc2e;"></div>
       <div class="tdot" style="background:#28c840;"></div>
-      <span class="tbar-label">postgres@primary-db — ap-south-1 (DC Region)</span>
-    </div>
-    <div class="tbody">
-      <div><span class="tp">postgres=#</span> <span class="tc">SELECT * FROM pg_stat_replication;</span></div>
-      <div><span class="to">-- replica: ap-south-1 · async · streaming active</span></div>
-      <div><span class="to">-- dr-standby: ap-southeast-1 · slot: dr_slot · synced</span></div>
-      <div>&nbsp;</div>
-      <div><span class="tp">$</span> <span class="tc">pg_basebackup -h PRIMARY_IP -U replicator -Ft -z -P</span></div>
-      <div><span class="tg">-- backup_20250511_020001/ ✓ SUCCESS</span></div>
-      <div>&nbsp;</div>
-      <div><span class="tp">$</span> <span class="tc">./promote_dr.sh</span></div>
-      <div><span class="th">-- Promoting DR Standby → Primary...</span></div>
-      <div><span class="tg">-- pg_is_in_recovery() → f ✓ Now acting as Primary</span> <span class="tcur"></span></div>
     </div>
   </div>
 </section>
@@ -315,7 +301,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.2r
     <div class="sk g"><span class="skd"></span>MySQL</div>
   </div>
   <div class="ach-grid" style="margin-top:2rem;">
-    <div class="ach"><div class="a-ic">🏗️</div><div class="a-t">DC-DR Mirrored Infrastructure</div><div class="a-d">Full 4-node topology replicated across Mumbai and Singapore AWS regions</div></div>
+    <div class="ach"><div class="a-ic">🏗️</div><div class="a-t">DC-DR Setup</div><div class="a-d">Full 4-node topology replicated across Mumbai and Singapore AWS regions</div></div>
     <div class="ach"><div class="a-ic">🔄</div><div class="a-t">Disaster Recovery System</div><div class="a-d">Cross-region standby with sub-5-minute automated promote_dr.sh failover script</div></div>
     <div class="ach"><div class="a-ic">💾</div><div class="a-t">Automated Backup Pipeline</div><div class="a-d">pg_basebackup with cron scheduling, last-3 rotation, and PITR capability</div></div>
     <div class="ach"><div class="a-ic">📊</div><div class="a-t">Enterprise Monitoring</div><div class="a-d">Netdata real-time metrics + pgBadger slow query log analysis</div></div>
@@ -329,7 +315,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.2r
 <!-- ARCHITECTURE -->
 <section class="sec" id="arch">
   <div class="sec-label">// infrastructure design</div>
-  <h2 class="sec-h">DC–DR <em>Mirror Architecture</em></h2>
+  <h2 class="sec-h">DC–DR </h2>
   <p class="sec-sub">8 nodes across 2 AWS regions. The DR region (Singapore) is an exact mirror of the DC (Mumbai) — Web Server, Primary DB, Read Replica, and Backup Server — all on hot standby, promoted via script on failover.</p>
   <div class="arch-wrap">
     <div class="region dc">
